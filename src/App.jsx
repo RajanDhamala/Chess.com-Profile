@@ -4,7 +4,7 @@ import Profile from './components/profile';
 function App() {
   const [input, setInput] = useState('');
   const [result, setResult] = useState(null);
-  const [gamedate,Setgamedate]=useState('')
+  const [gamedate,Setgamedate]=useState('2024/08')
   const [gamedate1,Setgamedate1]=useState('')
 
   const handleClick = (e) => {
@@ -38,8 +38,12 @@ function App() {
       try{
         const resp= await fetch(`https://api.chess.com/pub/player/NbcWala/games/${gamedate1}`)
         const data= await resp.json()
-        console.log("White",data.games[0].white)
-        console.log("black:",data.games[0].black)
+        try{
+        console.log("White",data.games[0].accuracies.white ,"Black",data.games[0].accuracies.black)
+        console.log("White:",data.games[0].white ,"Black",data.games[0].black)}
+        catch(error){
+          alert("Review not taken")
+        }
 
       }catch(error){
         console.log("Error:",error)
