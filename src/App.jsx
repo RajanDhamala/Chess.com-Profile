@@ -33,10 +33,20 @@ function App() {
 
   const games=(e)=>{
     e.preventDefault()
-    fetch(`https://api.chess.com/pub/player/NbcWala/games/${gamedate1}`)
-    .then((response)=>response.json())
-    .then((data)=>console.log(data))
-    .catch((error)=>console.log('Error',error))
+    async function hello(){
+      
+      try{
+        const resp= await fetch(`https://api.chess.com/pub/player/NbcWala/games/${gamedate1}`)
+        const data= await resp.json()
+        console.log("White",data.games[0].white)
+        console.log("black:",data.games[0].black)
+
+      }catch(error){
+        console.log("Error:",error)
+      }
+    }
+    hello()
+    
   }
 
   useEffect(() => {

@@ -45,7 +45,6 @@ useEffect(()=>{
 
     </div>
     </>
-
 )}
 
 export default Profile
