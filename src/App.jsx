@@ -41,6 +41,7 @@ function App() {
       try{
         const resp= await fetch(`https://api.chess.com/pub/player/NbcWala/games/${gamedate1}`)
         const data= await resp.json()
+        console.log(data)
         try{
         console.log("White",data.games[0].accuracies.white ,"Black",data.games[0].accuracies.black)
         console.log("White:",data.games[0].white ,"Black",data.games[0].black)
@@ -57,7 +58,6 @@ function App() {
     hello()
     
   }
-
   useEffect(() => {
     if (result) {
       console.log(result.name); 
