@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Profile from './components/profile';
+import Result from './components/Result';
 
 function App() {
   const [input, setInput] = useState('');
   const [result, setResult] = useState(null);
   const [gamedate,Setgamedate]=useState('2024/08')
   const [gamedate1,Setgamedate1]=useState('')
+  const [black,Setblack]=useState('')
+  const [white,Setwhite]=useState('')
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -40,7 +43,9 @@ function App() {
         const data= await resp.json()
         try{
         console.log("White",data.games[0].accuracies.white ,"Black",data.games[0].accuracies.black)
-        console.log("White:",data.games[0].white ,"Black",data.games[0].black)}
+        console.log("White:",data.games[0].white ,"Black",data.games[0].black)
+        Setwhite(data.games[0].white)
+        Setblack(data.games[0].black)}
         catch(error){
           alert("Review not taken")
         }
@@ -90,6 +95,10 @@ function App() {
       <div className='flex justify-center gap-3'>
       <input type="date" className='bg-gray-200' value={gamedate} onChange={(e)=>{inputdate(e)}} />
       <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={(e)=>games(e)}>Get games</button>
+      </div>
+      <div>
+        <Result info={black} color={'black'}/>
+        <Result info={white} color={'white'}/>
       </div>
     </>
   );
