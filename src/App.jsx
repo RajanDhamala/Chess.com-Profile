@@ -69,12 +69,28 @@ function App() {
   e.preventDefault()
   async function fetching(){
     try{
-      const resp=await fetch('https://api.chess.com/pub/player/NbcWala/games/2024/03/')
+      const resp=await fetch('https://api.chess.com/pub/player/NbcWala/games/2024/05/')
       const data= await resp.json()
       data.games.map((item,index)=>{
         console.log(item,"Index:",index)
+        console.log(item.url)
+        console.log(item.black.result,item.black.username,item.black.rating)
+        console.log(item.white.result,item.white.username,item.white.rating)
+          
+           const pgn = item.pgn;
+      const dateMatch = pgn.match(/\[Date "([\d.]+)"\]/);
+      const utcTimeMatch = pgn.match(/\[UTCTime "([\d:]+)"\]/);
+      
+      if (dateMatch && utcTimeMatch) {
+        const gameDate = dateMatch[1];
+        const utcTime = utcTimeMatch[1];
+        
+        console.log("Game Date:", gameDate);
+        console.log("UTC Time:", utcTime);
+      } else {
+        console.log("Date or UTC Time not found");
+      }
       })
-      console.log(data)
     }catch(error){
       console.log("Error:",error)
     }
