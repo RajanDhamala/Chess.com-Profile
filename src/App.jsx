@@ -67,6 +67,19 @@ function App() {
 
  function handlegames(e){
   e.preventDefault()
+  async function fetching(){
+    try{
+      const resp=await fetch('https://api.chess.com/pub/player/NbcWala/games/2024/03/')
+      const data= await resp.json()
+      data.games.map((item,index)=>{
+        console.log(item,"Index:",index)
+      })
+      console.log(data)
+    }catch(error){
+      console.log("Error:",error)
+    }
+  }
+  fetching()
 
  }
 
