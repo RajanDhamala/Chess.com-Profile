@@ -64,6 +64,12 @@ function App() {
     }
   }, [result]);
 
+
+ function handlegames(e){
+  e.preventDefault()
+
+ }
+
   return (
     <>
       <section>
@@ -99,6 +105,10 @@ function App() {
       <div>
         <Result info={black} color={'black'}/>
         <Result info={white} color={'white'}/>
+      </div>
+
+      <div className='flex justify-center mt-10'>
+        <button className='bg-green-500 hover:bg-green-600 rounded-md px-4 text-white' onClick={(e)=>{handlegames(e)}}>Fetch</button>
       </div>
     </>
   );
