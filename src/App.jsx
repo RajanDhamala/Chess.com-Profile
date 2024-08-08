@@ -5,7 +5,7 @@ import Result from './components/Result';
 function App() {
   const [input, setInput] = useState('');
   const [result, setResult] = useState(null);
-  const [gamedate,Setgamedate]=useState('2024/08')
+  const [gamedate,Setgamedate]=useState('')
   const [gamedate1,Setgamedate1]=useState('')
   const [black,Setblack]=useState('')
   const [white,Setwhite]=useState('')

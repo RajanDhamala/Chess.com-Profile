@@ -7,7 +7,6 @@ import GameUI from './components/GameUI.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Gamelist/>
     <GameUI/>
   </React.StrictMode>,
 )
