@@ -37,9 +37,8 @@ function App() {
   const games=(e)=>{
     e.preventDefault()
     async function hello(){
-      
       try{
-        const resp= await fetch(`https://api.chess.com/pub/player/NbcWala/games/${gamedate1}`)
+        const resp= await fetch(`https://api.chess.com/pub/player/${input}/games/${gamedate1}`)
         const data= await resp.json()
         console.log(data)
         try{
@@ -69,13 +68,13 @@ function App() {
   e.preventDefault()
   async function fetching(){
     try{
-      const resp=await fetch('https://api.chess.com/pub/player/NbcWala/games/2024/05/')
+      const resp=await fetch(`https://api.chess.com/pub/player/${input}/games/${gamedate1}`)
       const data= await resp.json()
       data.games.map((item,index)=>{
         console.log(item,"Index:",index)
         console.log(item.url)
-        console.log(item.black.result,item.black.username,item.black.rating)
-        console.log(item.white.result,item.white.username,item.white.rating)
+        console.log("Black",item.black.result,item.black.username,item.black.rating)
+        console.log("White",item.white.result,item.white.username,item.white.rating)
           
            const pgn = item.pgn;
       const dateMatch = pgn.match(/\[Date "([\d.]+)"\]/);
@@ -131,10 +130,10 @@ function App() {
       <input type="date" className='bg-gray-200' value={gamedate} onChange={(e)=>{inputdate(e)}} />
       <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={(e)=>games(e)}>Get games</button>
       </div>
-      <div>
+      {black &&<div>
         <Result info={black} color={'black'}/>
         <Result info={white} color={'white'}/>
-      </div>
+      </div>}
 
       <div className='flex justify-center mt-10'>
         <button className='bg-green-500 hover:bg-green-600 rounded-md px-4 text-white' onClick={(e)=>{handlegames(e)}}>Fetch</button>
