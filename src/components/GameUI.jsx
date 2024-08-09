@@ -115,9 +115,6 @@ export default function(){
             <button className="text-white text-md bg-blue-500 hover:bg-blue-600 rounded-md px-2 py-1 mb-5 font-semibold" onClick={(e)=>{handlefetch(e)}}>Fetch Games</button>
         </div>
         </div>
-        <div>
-          <h1 className="text-center text-3xl text-white font-bold">hello osama</h1>
-        </div>
         </>
     )
 }
