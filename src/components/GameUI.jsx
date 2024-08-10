@@ -48,7 +48,7 @@ export default function(){
         async function getresp(){
         try{
         const resp= await fetch(`https://api.chess.com/pub/player/${input}/games/${date}`)
-        const data=await resp.json()
+        const data=await resp.json() 
         console.log(data)
         if (data.games.length==0){
           alert("Games not found")
@@ -99,12 +99,12 @@ export default function(){
             <h1 className="text-white text-center text-2xl font-bold">{date}</h1>
             <div className="bg-black space-y-3">
             <div className="overflow-y-scroll md:max-h-96 max-h-60">
-            {apibataako && apibataako.games && apibataako.games.length > 0 && 
-              apibataako.games.map((game)=>(
-                <Gamelog gamedata={game}/>
-              ))
-            }
-          </div>
+    {apibataako && apibataako.games && apibataako.games.length > 0 && 
+        apibataako.games.slice().reverse().map((game, index) => (
+            <Gamelog key={index} gamedata={game} />
+        ))
+    }
+</div>
         </div>
         <div className="flex justify-center space-x-3 mt-3">
             <button className="text-white text-2xl bg-black rounded-md px-3 hover:scale-110"onClick={(e)=>handleLeftClick(e)} >←</button>
