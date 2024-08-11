@@ -50,6 +50,7 @@ export default function(){
         const resp= await fetch(`https://api.chess.com/pub/player/${input}/games/${date}`)
         const data=await resp.json() 
         console.log(data)
+        console.log(data.games[0].url)
         if (data.games.length==0){
           alert("Games not found")
         }
