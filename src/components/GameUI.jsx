@@ -9,6 +9,7 @@ export default function(){
     const formattedDate = `${year}/${month}`;
     const [date, setDate] = useState(formattedDate);
     const [apibataako,Setapibataako]=useState('')
+    const [loading,Setloading]=(false)
     
     const handleDateChange = (newDate) => {
       setDate(newDate);
@@ -102,7 +103,8 @@ export default function(){
             <div className="overflow-y-scroll md:max-h-96 max-h-60">
     {apibataako && apibataako.games && apibataako.games.length > 0 && 
         apibataako.games.slice().reverse().map((game, index) => (
-            <Gamelog key={index} gamedata={game} />
+            <Gamelog key={index} gamedata={game} 
+            />
         ))
     }
 </div>
