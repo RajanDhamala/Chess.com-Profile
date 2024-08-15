@@ -5,8 +5,9 @@ import './index.css'
 import Gamelist from './components/GameList.jsx'
 import GameUI from './components/GameUI.jsx'
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <GameUI/>
+   <GameUI/>
   </React.StrictMode>,
 )
