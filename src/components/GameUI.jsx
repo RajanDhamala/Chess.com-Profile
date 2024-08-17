@@ -113,7 +113,7 @@ export default function(){
              hover:scale-110 "onClick={(e)=>handleRightClick(e)} >→</button>
         </div>
         <div className="flex justify-center mt-3">
-            <button className="text-white text-md bg-blue-500 hover:bg-blue-600 rounded-md px-2 py-1 mb-5 font-semibold" onClick={(e)=>{handlefetch(e)}}>Fetch Games</button>
+            <button className="text-white text-md bg-blue-500 hover:bg-blue-600 rounded-md px-2 py-1 mb-5 font-semibold" onClick={(e)=>{handlefetch(e)}}>Get Games</button>
         </div>
         </div>
         </>
